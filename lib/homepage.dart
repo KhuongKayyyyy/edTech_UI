@@ -162,24 +162,37 @@ class _HomepageState extends State<Homepage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        selectedItemColor: AppTheme.primaryColor,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book_outlined),
-            label: "Course",
+      bottomNavigationBar: ClipRRect(
+        borderRadius:const BorderRadius.only(
+          topLeft: Radius.circular(10),
+          topRight: Radius.circular(10)
+        ),
+        child:  Container(
+          decoration:const BoxDecoration(
+              border: Border(
+                  top: BorderSide(color: Colors.grey, width: 0.5)
+              )
           ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: "Profile"
+          child: BottomNavigationBar(
+            backgroundColor: Colors.white,
+            selectedItemColor: AppTheme.primaryColor,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.book_outlined),
+                label: "Course",
+              ),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  label: "Profile"
+              ),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.settings_outlined),
+                  label: "Setting"
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings_outlined),
-              label: "Setting"
-          ),
-        ],
-      ),
+        ),
+      )
     );
   }
 }

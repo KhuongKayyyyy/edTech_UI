@@ -47,6 +47,23 @@ class CourseItem extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Positioned(
+                      bottom: 8,
+                      right: 8,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        decoration: BoxDecoration(
+                            color: AppTheme.secondaryColor,
+                            borderRadius:BorderRadius.circular(10)
+                        ),
+                        child: Text(
+                          "\$${course.price}",
+                          style:const TextStyle(
+                            color: Colors.white
+                          ),
+                        ),
+                      )
+                  ),
                 ],
               ),
             ),
