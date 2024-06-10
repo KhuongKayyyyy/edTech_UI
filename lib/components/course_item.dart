@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:edtech_app/components/course_detail.dart';
 import 'package:edtech_app/model/course.dart';
 import 'package:edtech_app/utils/app_theme.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,11 @@ class CourseItem extends StatelessWidget {
     return InkWell(
       onTap: () {
         print("Course pressed");
+        Navigator.push(context,
+        MaterialPageRoute(
+            builder: (context) => CourseDetail(course: course,)
+        ),
+        );
       },
       child: Container(
         decoration: BoxDecoration(
