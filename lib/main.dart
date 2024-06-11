@@ -1,4 +1,4 @@
-import 'package:edtech_app/homepage.dart';
+import 'package:edtech_app/views/homepage.dart';
 import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 

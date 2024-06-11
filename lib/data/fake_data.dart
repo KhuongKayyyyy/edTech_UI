@@ -1,4 +1,5 @@
 import 'package:edtech_app/model/course.dart';
+import 'package:edtech_app/model/user.dart';
 
 class FakeData{
   List<Course> courses = [
@@ -73,4 +74,6 @@ class FakeData{
       price: 50,
     ),
   ];
+
+  User user = User(name: "Nguyen Dat Khuong", password: "1123", email: "zzkhngzz@gmail.com", avatarURL: "https://i.pinimg.com/originals/49/3f/a0/493fa0f13970ab3ef29375669f670451.jpg");
 }

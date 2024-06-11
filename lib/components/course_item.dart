@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:edtech_app/components/course_detail.dart';
+import 'package:edtech_app/views/course_detail.dart';
 import 'package:edtech_app/model/course.dart';
 import 'package:edtech_app/utils/app_theme.dart';
 import 'package:flutter/material.dart';
