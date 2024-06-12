@@ -29,7 +29,7 @@ class _HomepageState extends State<Homepage> {
             case 1:
               return ProfileScreen(user: user,);
             case 2:
-              return SettingsScreen();
+              return SettingScreen();
             default:
               return CourseScreen();
           }

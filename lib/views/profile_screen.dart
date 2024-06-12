@@ -35,7 +35,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           case 0:
             return Homepage();
           case 2:
-            return SettingsScreen();
+            return SettingScreen();
           default:
             return CourseScreen();
         }
