@@ -5,6 +5,7 @@ import 'package:edtech_app/model/user.dart';
 import 'package:edtech_app/utils/app_theme.dart';
 import 'package:edtech_app/views/course_screen.dart';
 import 'package:edtech_app/views/homepage.dart';
+import 'package:edtech_app/views/my_course.dart';
 import 'package:edtech_app/views/setting_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -104,11 +105,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
             style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold), // Add some styling
           ),
           const SizedBox(height: 15,),
-          SecondaryButton(btnContent: "Your courses",),
+          SecondaryButton(btnContent: "Your courses",onPressed: (){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => MyCourse()
+                ),
+            );
+          },
+          ),
           const SizedBox(height: 10,),
-          SecondaryButton(btnContent: "Saved"),
+          SecondaryButton(btnContent: "Saved",onPressed: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => Homepage()
+              ),
+            );
+          },
+          ),
           const SizedBox(height: 10,),
-          SecondaryButton(btnContent: "Payment"),
+          SecondaryButton(btnContent: "Payment",onPressed: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => Homepage()
+              ),
+            );
+          },
+          ),
           const SizedBox(height: 10,),
           Center(
             child: InkWell(
