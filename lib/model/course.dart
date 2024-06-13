@@ -1,3 +1,5 @@
+import 'package:edtech_app/model/course_section.dart';
+
 class Course {
   static int _idCounter = 0;
   final int id;
@@ -6,6 +8,7 @@ class Course {
   final int hour;
   final String overview;
   final int price;
+  final List<CourseSection> sections;
 
   Course({
     required this.name,
@@ -13,6 +16,7 @@ class Course {
     required this.hour,
     required this.overview,
     required this.price,
+    required this.sections,
   }) : id = _idCounter++;
 
   @override

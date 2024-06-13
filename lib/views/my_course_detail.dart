@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:edtech_app/components/course_section.dart';
+import 'package:edtech_app/components/course_section_item.dart';
+import 'package:edtech_app/data/fake_data.dart';
 import 'package:edtech_app/model/course.dart';
 import 'package:edtech_app/utils/app_theme.dart';
 import 'package:flutter/material.dart';
@@ -111,15 +112,15 @@ class MyCourseDetail extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10,),
-              CourseSection(course: course,courseSectionName: "Main Tags",),
+              CourseSectionItem(courseSection: FakeData().sampleCourse.sections.first),
               const SizedBox(height: 10,),
-              CourseSection(course: course,courseSectionName: "Tags For Header",),
+              CourseSectionItem(courseSection: FakeData().sampleCourse.sections.first),
               const SizedBox(height: 10,),
-              CourseSection(course: course,courseSectionName: "Style Tags",),
+              CourseSectionItem(courseSection: FakeData().sampleCourse.sections.first),
               const SizedBox(height: 10,),
-              CourseSection(course: course,courseSectionName: "Body Tags",),
+              CourseSectionItem(courseSection: FakeData().sampleCourse.sections.first),
               const SizedBox(height: 10,),
-              CourseSection(course: course,courseSectionName: "Table Tags",),
+              CourseSectionItem(courseSection: FakeData().sampleCourse.sections.first),
             ],
           ),
         ),
