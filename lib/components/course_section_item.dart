@@ -7,9 +7,10 @@ import 'package:edtech_app/views/course_section_detail.dart';
 import 'package:flutter/material.dart';
 
 class CourseSectionItem extends StatelessWidget {
+  int index;
   final CourseSection courseSection;
 
-  CourseSectionItem({required this.courseSection});
+  CourseSectionItem({required this.courseSection, required this.index});
 
   double _generateRandomProcess() {
     final random = Random();
@@ -25,7 +26,7 @@ class CourseSectionItem extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => CourseSectionDetail(courseSection: courseSection),
+            builder: (context) => CourseSectionDetail(courseSection: courseSection, index: index,),
           ),
         );
       },
