@@ -1,4 +1,5 @@
-import 'package:edtech_app/components/course_lesson_item.dart';
+import 'package:edtech_app/components/course_section_lesson.dart';
+import 'package:edtech_app/components/course_section_test.dart';
 import 'package:edtech_app/model/course.dart';
 import 'package:edtech_app/model/course_section.dart';
 import 'package:edtech_app/utils/app_theme.dart';
@@ -26,9 +27,9 @@ class _CourseSectionDetailState extends State<CourseSectionDetail> {
   Widget _buildTabContent() {
     switch (activeTab) {
       case 'Lessons':
-        return CourseLessonItem(courseSection: widget.courseSection); // Replace with actual content
+        return CourseSectionLesson(courseSection: widget.courseSection); // Replace with actual content
       case 'Tests':
-        return Text("Tests Content"); // Replace with actual content
+        return CourseSectionTest(course: widget.courseSection.course); // Replace with actual content
       case 'Discuss':
         return Text("Discuss Content"); // Replace with actual content
       default:

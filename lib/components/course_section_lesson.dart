@@ -4,9 +4,9 @@ import 'package:edtech_app/utils/app_theme.dart';
 import 'package:edtech_app/views/my_course_detail.dart';
 import 'package:flutter/material.dart';
 
-class CourseLessonItem extends StatelessWidget{
+class CourseSectionLesson extends StatelessWidget{
   CourseSection courseSection;
-  CourseLessonItem({required this.courseSection});
+  CourseSectionLesson({required this.courseSection});
   @override
   Widget build(BuildContext context) {
     return Padding(

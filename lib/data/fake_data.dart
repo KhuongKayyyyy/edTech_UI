@@ -1,7 +1,7 @@
 import 'package:edtech_app/model/course.dart';
 import 'package:edtech_app/model/course_section.dart';
 import 'package:edtech_app/model/user.dart';
-
+import 'package:edtech_app/model/question.dart';
 class FakeData {
   List<Course> courses = [
     Course(
@@ -89,7 +89,7 @@ class FakeData {
   late Course sampleCourse;
 
   List<CourseSection> courseSections = [];
-
+  List<Question> questions =[];
   FakeData() {
     sampleCourse = Course(
       name: 'Flutter Basics',
@@ -99,16 +99,26 @@ class FakeData {
       price: 50,
       sections: [],
     );
-
     courseSections = [
-      CourseSection(name: "What is Flutter", introduction: "You can launch a new career in web development today by learning HTML & CSS. You don't need a computer science degree or expensive software. All you need is a computer, a bit of time,a lot of determination, and a teacher you trust.Once the form data has been validated on the client-side, it is okay to submit the form. And, since we covered validation in the previous article, we're ready to submit! This article looks at what happens when a user submits a form — where does the data go, and how do we handle it when it gets there? We also look at some of the security concerns.", course: sampleCourse, imgURL:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ19Z8nyT_WYDVeApZDmBitRTMmDYRzSZ2pYR6ken_p0DGTzb39hLY1L7kVA60r3eQY2A&usqp=CAU" ),
-      CourseSection(name: "Dart Language", introduction:"You can launch a new career in web development today by learning HTML & CSS. You don't need a computer science degree or expensive software. All you need is a computer, a bit of time,a lot of determination, and a teacher you trust.Once the form data has been validated on the client-side, it is okay to submit the form. And, since we covered validation in the previous article, we're ready to submit! This article looks at what happens when a user submits a form — where does the data go, and how do we handle it when it gets there? We also look at some of the security concerns.", course: sampleCourse, imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1uZZamBjhn_esgj8W77DS5zmwMDTaSXKcoy_UItHpm8QENBbiWcWXNYlQNpn_WPiWnqQ&usqp=CAU"),
-      CourseSection(name: "Main Tags", introduction: "You can launch a new career in web development today by learning HTML & CSS. You don't need a computer science degree or expensive software. All you need is a computer, a bit of time,a lot of determination, and a teacher you trust.Once the form data has been validated on the client-side, it is okay to submit the form. And, since we covered validation in the previous article, we're ready to submit! This article looks at what happens when a user submits a form — where does the data go, and how do we handle it when it gets there? We also look at some of the security concerns.", course: sampleCourse, imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7FRcZzJbyNPZRuUhULLHIABBwRmHsASAUqSz6boKMVbfKd18HCtd0YHWl-NHhzWSX67I&usqp=CAU"),
-      CourseSection(name: "Project Structure", introduction: "You can launch a new career in web development today by learning HTML & CSS. You don't need a computer science degree or expensive software. All you need is a computer, a bit of time,a lot of determination, and a teacher you trust.Once the form data has been validated on the client-side, it is okay to submit the form. And, since we covered validation in the previous article, we're ready to submit! This article looks at what happens when a user submits a form — where does the data go, and how do we handle it when it gets there? We also look at some of the security concerns.", course: sampleCourse, imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSStx6ehUtlMiui6vRo9DzbzrF3_as3YAly79qWPE1-XA2zSqrCbbUgJ62qmgtFySok9Ns&usqp=CAU"),
-      CourseSection(name: "Mobile App with AI", introduction: "You can launch a new career in web development today by learning HTML & CSS. You don't need a computer science degree or expensive software. All you need is a computer, a bit of time,a lot of determination, and a teacher you trust.Once the form data has been validated on the client-side, it is okay to submit the form. And, since we covered validation in the previous article, we're ready to submit! This article looks at what happens when a user submits a form — where does the data go, and how do we handle it when it gets there? We also look at some of the security concerns.", course: sampleCourse, imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9w8peXfvbaek5UZrHiiXVIxXs0WoHX-_B87yE9LK3hNkcB9S6mngU99W5KMZCB-hwaOk&usqp=CAU"),
+      CourseSection(name: "What is Flutter", introduction: "You can launch a new career in web development today by learning HTML & CSS. You don't need a computer science degree or expensive software. All you need is a computer, a bit of time,a lot of determination, and a teacher you trust.Once the form data has been validated on the client-side, it is okay to submit the form. And, since we covered validation in the previous article, we're ready to submit! This article looks at what happens when a user submits a form — where does the data go, and how do we handle it when it gets there? We also look at some of the security concerns.", course: sampleCourse, imgURL:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ19Z8nyT_WYDVeApZDmBitRTMmDYRzSZ2pYR6ken_p0DGTzb39hLY1L7kVA60r3eQY2A&usqp=CAU",questions: [] ),
+      CourseSection(name: "Dart Language", introduction:"You can launch a new career in web development today by learning HTML & CSS. You don't need a computer science degree or expensive software. All you need is a computer, a bit of time,a lot of determination, and a teacher you trust.Once the form data has been validated on the client-side, it is okay to submit the form. And, since we covered validation in the previous article, we're ready to submit! This article looks at what happens when a user submits a form — where does the data go, and how do we handle it when it gets there? We also look at some of the security concerns.", course: sampleCourse, imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1uZZamBjhn_esgj8W77DS5zmwMDTaSXKcoy_UItHpm8QENBbiWcWXNYlQNpn_WPiWnqQ&usqp=CAU",questions: []),
+      CourseSection(name: "Main Tags", introduction: "You can launch a new career in web development today by learning HTML & CSS. You don't need a computer science degree or expensive software. All you need is a computer, a bit of time,a lot of determination, and a teacher you trust.Once the form data has been validated on the client-side, it is okay to submit the form. And, since we covered validation in the previous article, we're ready to submit! This article looks at what happens when a user submits a form — where does the data go, and how do we handle it when it gets there? We also look at some of the security concerns.", course: sampleCourse, imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7FRcZzJbyNPZRuUhULLHIABBwRmHsASAUqSz6boKMVbfKd18HCtd0YHWl-NHhzWSX67I&usqp=CAU",questions: []),
+      CourseSection(name: "Project Structure", introduction: "You can launch a new career in web development today by learning HTML & CSS. You don't need a computer science degree or expensive software. All you need is a computer, a bit of time,a lot of determination, and a teacher you trust.Once the form data has been validated on the client-side, it is okay to submit the form. And, since we covered validation in the previous article, we're ready to submit! This article looks at what happens when a user submits a form — where does the data go, and how do we handle it when it gets there? We also look at some of the security concerns.", course: sampleCourse, imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSStx6ehUtlMiui6vRo9DzbzrF3_as3YAly79qWPE1-XA2zSqrCbbUgJ62qmgtFySok9Ns&usqp=CAU",questions: []),
+      CourseSection(name: "Mobile App with AI", introduction: "You can launch a new career in web development today by learning HTML & CSS. You don't need a computer science degree or expensive software. All you need is a computer, a bit of time,a lot of determination, and a teacher you trust.Once the form data has been validated on the client-side, it is okay to submit the form. And, since we covered validation in the previous article, we're ready to submit! This article looks at what happens when a user submits a form — where does the data go, and how do we handle it when it gets there? We also look at some of the security concerns.", course: sampleCourse, imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9w8peXfvbaek5UZrHiiXVIxXs0WoHX-_B87yE9LK3hNkcB9S6mngU99W5KMZCB-hwaOk&usqp=CAU",questions: []),
     ];
-    
-    for(int i = 0; i< courseSections.length; i++){
+
+    questions =[
+      Question(questionText: "What tag for the biggest header", options: ["<h5>","<p>","<h1>",], correctAnswerIndex: 2, courseSection: courseSections.first),
+      Question(questionText: "What tag for the biggest header", options: ["<h5>","<p>","<h1>",], correctAnswerIndex: 2, courseSection: courseSections.first),
+      Question(questionText: "What tag for the biggest header", options: ["<h5>","<p>","<h1>",], correctAnswerIndex: 2, courseSection: courseSections.first),
+      Question(questionText: "What tag for the biggest header", options: ["<h5>","<p>","<h1>",], correctAnswerIndex: 2, courseSection: courseSections.first),
+      Question(questionText: "What tag for the biggest header", options: ["<h5>","<p>","<h1>",], correctAnswerIndex: 2, courseSection: courseSections.first),
+    ];
+
+    for(int i = 0; i< questions.length; i++) {
+      courseSections.first.questions?.add(questions.elementAt(i));
+    }
+      for(int i = 0; i< courseSections.length; i++){
       sampleCourse.sections.add(courseSections.elementAt(i));
     }
   }
