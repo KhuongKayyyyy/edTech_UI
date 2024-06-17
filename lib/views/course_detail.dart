@@ -11,7 +11,9 @@ class CourseDetail extends StatelessWidget {
 
   final String courseIntroduction =
       "You can launch a new career in web development today by learning HTML & CSS. You don't need a computer science degree or expensive software. All you need is a computer, a bit of time, a lot of determination, and a teacher you trust.";
-
+  void addToCart(){
+    print("Add to cart");
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,7 +124,7 @@ class CourseDetail extends StatelessWidget {
             bottom: 0,
             left: 0,
             right: 0,
-            child: PrimaryButton(btnText: "Add to cart"),
+            child: PrimaryButton(btnText: "Add to cart", onPressed: addToCart,),
           ),
         ],
       ),

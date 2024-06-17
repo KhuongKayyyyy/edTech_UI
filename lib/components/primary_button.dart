@@ -3,17 +3,16 @@ import 'package:flutter/material.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String btnText;
+  final VoidCallback onPressed;  // Add this line
 
-  PrimaryButton({required this.btnText});
+  PrimaryButton({required this.btnText, required this.onPressed});  // Update constructor
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: ElevatedButton(
-        onPressed: () {
-          print("Add to cart");
-        },
+        onPressed: onPressed,  // Update this line
         style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white,
           backgroundColor: AppTheme.primaryColor,

@@ -108,11 +108,11 @@ class FakeData {
     ];
 
     questions =[
-      Question(questionText: "What tag for the biggest header", options: ["<h5>","<p>","<h1>",], correctAnswerIndex: 2, courseSection: courseSections.first),
-      Question(questionText: "What tag for the biggest header", options: ["<h5>","<p>","<h1>",], correctAnswerIndex: 2, courseSection: courseSections.first),
-      Question(questionText: "What tag for the biggest header", options: ["<h5>","<p>","<h1>",], correctAnswerIndex: 2, courseSection: courseSections.first),
-      Question(questionText: "What tag for the biggest header", options: ["<h5>","<p>","<h1>",], correctAnswerIndex: 2, courseSection: courseSections.first),
-      Question(questionText: "What tag for the biggest header", options: ["<h5>","<p>","<h1>",], correctAnswerIndex: 2, courseSection: courseSections.first),
+      Question(questionText: "What tag for the biggest header ?", options: ["<h5>","<p>","<h1>",], correctAnswerIndex: 2, courseSection: courseSections.first),
+      Question(questionText: "What tag for the paragraph ?", options: ["<h5>","<p>","<h1>",], correctAnswerIndex: 2, courseSection: courseSections.first),
+      Question(questionText: "What tag for the smallest header ?", options: ["<h5>","<p>","<h1>",], correctAnswerIndex: 2, courseSection: courseSections.first),
+      Question(questionText: "What tag for the biggest header ?", options: ["<h5>","<p>","<h1>",], correctAnswerIndex: 2, courseSection: courseSections.first),
+      Question(questionText: "What tag for the biggest header ?", options: ["<h5>","<p>","<h1>",], correctAnswerIndex: 2, courseSection: courseSections.first),
     ];
 
     for(int i = 0; i< questions.length; i++) {

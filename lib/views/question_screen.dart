@@ -1,16 +1,41 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:edtech_app/components/primary_button.dart';
 import 'package:edtech_app/model/course_section.dart';
+import 'package:edtech_app/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 
-class QuestionScreen extends StatefulWidget{
-  CourseSection courseSection;
+class QuestionScreen extends StatefulWidget {
+  final CourseSection courseSection;
   QuestionScreen({required this.courseSection});
+
   @override
   _QuestionScreenState createState() => _QuestionScreenState();
 }
 
-class _QuestionScreenState extends State<QuestionScreen>{
+class _QuestionScreenState extends State<QuestionScreen> {
+  int index = 0; // Start from the first question
+  int? selectedAnswerIndex;
+  bool answeredCorrectly = false;
+
+  void checkAnswer(int answerIndex) {
+    setState(() {
+      selectedAnswerIndex = answerIndex;
+      answeredCorrectly = widget.courseSection.questions?[index].correctAnswerIndex == answerIndex;
+    });
+  }
+
+  void moveToNextQuestion() {
+    setState(() {
+      index++;
+      selectedAnswerIndex = null;
+      answeredCorrectly = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    final question = widget.courseSection.questions?[index];
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -32,6 +57,108 @@ class _QuestionScreenState extends State<QuestionScreen>{
               ),
             ),
           ],
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Center(
+          child: Column(
+            children: [
+              Text(
+                '${index + 1} of ${widget.courseSection.questions?.length ?? 0}',
+                style: TextStyle(
+                  color: AppTheme.inkGrey,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                question?.questionText ?? "No question available",
+                style: const TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 30),
+              Container(
+                width: double.infinity,
+                height: 200,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: AppTheme.inkGrey,
+                    width: 2,
+                  ),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: CachedNetworkImage(
+                    imageUrl: widget.courseSection.imgURL,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              for (int i = 0; i < (question?.options.length ?? 0); i++)
+                Column(
+                  children: [
+                    SizedBox(
+                      height: 70,
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: selectedAnswerIndex == null
+                            ? () {
+                          checkAnswer(i);
+                        }
+                            : null, // Disable button after an answer is selected
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: selectedAnswerIndex == i
+                              ? (answeredCorrectly
+                              ? Colors.green
+                              : i == selectedAnswerIndex
+                              ? Colors.red
+                              : Colors.white)
+                              : Colors.white,
+                          foregroundColor: selectedAnswerIndex == i
+                              ? Colors.white
+                              : AppTheme.inkGreyDark,
+                          side: BorderSide(
+                              color: selectedAnswerIndex == i
+                                  ? (answeredCorrectly
+                                  ? Colors.green
+                                  : i == selectedAnswerIndex
+                                  ? Colors.red
+                                  : AppTheme.inkGrey)
+                                  : AppTheme.inkGrey,
+                              width: 2),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              "${String.fromCharCode(65 + i)}. ${question?.options[i] ?? "No answer found"}",
+                              style: const TextStyle(fontSize: 20),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                  ],
+                ),
+              PrimaryButton(
+                btnText: "Next Question",
+                onPressed: index < (widget.courseSection.questions?.length ?? 1) - 1
+                    ? () {
+                  moveToNextQuestion();
+                }
+                    : (){}, // Disable button when there are no more questions
+              ),
+            ],
+          ),
         ),
       ),
     );
