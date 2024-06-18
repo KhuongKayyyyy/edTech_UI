@@ -3,6 +3,7 @@ import 'package:edtech_app/components/primary_button.dart';
 import 'package:edtech_app/model/course_section.dart';
 import 'package:edtech_app/utils/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'result_screen.dart';  // Import the ResultScreen
 
 class QuestionScreen extends StatefulWidget {
   final CourseSection courseSection;
@@ -25,11 +26,18 @@ class _QuestionScreenState extends State<QuestionScreen> {
   }
 
   void moveToNextQuestion() {
-    setState(() {
-      index++;
-      selectedAnswerIndex = null;
-      answeredCorrectly = false;
-    });
+    if (index < (widget.courseSection.questions?.length ?? 1) - 1) {
+      setState(() {
+        index++;
+        selectedAnswerIndex = null;
+        answeredCorrectly = false;
+      });
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => ResultScreen()),
+      );
+    }
   }
 
   @override
@@ -116,9 +124,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                           backgroundColor: selectedAnswerIndex == i
                               ? (answeredCorrectly
                               ? Colors.green
-                              : i == selectedAnswerIndex
-                              ? Colors.red
-                              : Colors.white)
+                              : Colors.red)
                               : Colors.white,
                           foregroundColor: selectedAnswerIndex == i
                               ? Colors.white
@@ -127,9 +133,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                               color: selectedAnswerIndex == i
                                   ? (answeredCorrectly
                                   ? Colors.green
-                                  : i == selectedAnswerIndex
-                                  ? Colors.red
-                                  : AppTheme.inkGrey)
+                                  : Colors.red)
                                   : AppTheme.inkGrey,
                               width: 2),
                           shape: RoundedRectangleBorder(
@@ -151,11 +155,11 @@ class _QuestionScreenState extends State<QuestionScreen> {
                 ),
               PrimaryButton(
                 btnText: "Next Question",
-                onPressed: index < (widget.courseSection.questions?.length ?? 1) - 1
+                onPressed: selectedAnswerIndex != null
                     ? () {
                   moveToNextQuestion();
                 }
-                    : (){}, // Disable button when there are no more questions
+                    : (){}, // Disable button if no answer is selected
               ),
             ],
           ),
