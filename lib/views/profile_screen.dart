@@ -5,7 +5,10 @@ import 'package:edtech_app/model/user.dart';
 import 'package:edtech_app/utils/app_theme.dart';
 import 'package:edtech_app/views/course_screen.dart';
 import 'package:edtech_app/views/homepage.dart';
+import 'package:edtech_app/views/login.dart';
 import 'package:edtech_app/views/my_course.dart';
+import 'package:edtech_app/views/payment_screen.dart';
+import 'package:edtech_app/views/saved_course_screen.dart';
 import 'package:edtech_app/views/setting_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -119,7 +122,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => Homepage()
+                  builder: (context) => SavedCourseScreen()
               ),
             );
           },
@@ -129,7 +132,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => Homepage()
+                  builder: (context) => PaymentScreen()
               ),
             );
           },
@@ -139,6 +142,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: InkWell(
               onTap: (){
                 print("Log out pressed");
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Login()
+                  )
+                );
               },
               child: Text(
                 "Log Out",
